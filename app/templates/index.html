@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Visit Calculator!</h1>
+    <form action="" method="post" name="index">
+        {{ form.hidden_tag() }}
+        <p>Start date (mm/dd/yyyy): {{ form.start_date(value=current_date) }}</p>
+        <p>Days in between visits: {{ form.step_size(type="number", value="1", min="1") }}</p>
+        <p>Numbers of visits: {{ form.visit_count(type="number", value="1", min="1") }}</p>
+        <p>Visit +/- (In Days): {{ form.visit_range(type="number", value="0", min="0") }}</p>
+        <p>{{ form.submit }}</p>
+    </form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Calculations</h1>
+    <ul>
+        {% for visit in visits %}
+        {% set outer_loop = loop %}
+        <li>
+            visit {{outer_loop.index}}
+            <form>
+                {% for date in visit %}
+                <input type="radio" name="visit{{ outer_loop.index }}"> {{ date }} <br>
+                {% endfor %}
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href={{ url_for('index') }}>Back</a>
+{% endblock %}
